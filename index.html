@@ -20,6 +20,7 @@
 	<link href="css/animations.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/custom.css" rel="stylesheet">
+	<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 
 <body class="no-trans">
@@ -1024,39 +1025,6 @@
 			</div>
 		</div>
 
-		<!-- Script EmailJS -->
-		<script type="text/javascript">
-			// Inicializar EmailJS com o seu USER_ID
-			(function () {
-				emailjs.init("YTOyftPYG2MacXSMz");  // Substitua pelo seu USER_ID
-			})();
-
-			// Adicionar evento de submissão ao formulário
-			document.getElementById('footer-form').addEventListener('submit', function (event) {
-				event.preventDefault(); // Previne o comportamento padrão do formulário
-
-				// Captura os dados do formulário
-				const name = document.getElementById('name2').value;
-				const email = document.getElementById('email2').value;
-				const message = document.getElementById('message2').value;
-
-				// Define os parâmetros do EmailJS
-				const templateParams = {
-					from_name: name,
-					from_email: email,
-					message: message
-				};
-
-				// Enviar o e-mail via EmailJS
-				emailjs.send('service_8b4v4xa', 'template_02twfhn', templateParams)
-					.then(function (response) {
-						document.getElementById('response').innerHTML = '<p class="text-success">Mensagem enviada com sucesso!</p>';
-					}, function (error) {
-						document.getElementById('response').innerHTML = '<p class="text-danger">Erro ao enviar mensagem: ' + JSON.stringify(error) + '</p>';
-					});
-			});
-		</script>
-
 
 
 
@@ -1121,7 +1089,38 @@
 	<!-- Custom Scripts -->
 	<script type="text/javascript" src="js/custom.js"></script>
 
-	<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+	<!-- Script EmailJS -->
+	<script type="text/javascript">
+		// Inicializar EmailJS com o seu USER_ID
+		(function () {
+			emailjs.init("YTOyftPYG2MacXSMz");  // Substitua pelo seu USER_ID
+		})();
+
+		// Adicionar evento de submissão ao formulário
+		document.getElementById('footer-form').addEventListener('submit', function (event) {
+			event.preventDefault(); // Previne o comportamento padrão do formulário
+
+			// Captura os dados do formulário
+			const name = document.getElementById('name2').value;
+			const email = document.getElementById('email2').value;
+			const message = document.getElementById('message2').value;
+
+			// Define os parâmetros do EmailJS
+			const templateParams = {
+				from_name: name,
+				from_email: email,
+				message: message
+			};
+
+			// Enviar o e-mail via EmailJS
+			emailjs.send('service_8b4v4xa', 'template_02twfhn', templateParams)
+				.then(function (response) {
+					document.getElementById('response').innerHTML = '<p class="text-success">Mensagem enviada com sucesso!</p>';
+				}, function (error) {
+					document.getElementById('response').innerHTML = '<p class="text-danger">Erro ao enviar mensagem: ' + JSON.stringify(error) + '</p>';
+				});
+		});
+	</script>
 
 </body>
 
