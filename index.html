@@ -1113,9 +1113,11 @@
 			// Enviar o e-mail via EmailJS
 			emailjs.send('service_8b4v4xa', 'template_02twfhn', templateParams)
 				.then(function (response) {
-					document.getElementById('response').innerHTML = '<p class="text-success">Mensagem enviada com sucesso!</p>';
+					document.getElementById('response').innerHTML = '<p class="text-success">Mensagem enviada com sucesso! <i class="fa fa-check-circle"></i></p>';
+                document.getElementById('response').classList.add('animated', 'fadeInUp');
 				}, function (error) {
 					document.getElementById('response').innerHTML = '<p class="text-danger">Erro ao enviar mensagem: ' + JSON.stringify(error) + '</p>';
+                document.getElementById('response').classList.add('animated', 'shake');
 				});
 		});
 	</script>
